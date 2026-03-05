@@ -16,7 +16,9 @@ START = "1993-01-01"
 
 
 def download() -> pd.DataFrame:
-    raw = yf.download(TICKER, start=START, interval="1d", auto_adjust=True, progress=True)
+    raw = yf.download(
+        TICKER, start=START, interval="1d", auto_adjust=True, progress=True
+    )  # noqa: E501
 
     # yfinance returns a MultiIndex when downloading a single ticker with auto_adjust
     if isinstance(raw.columns, pd.MultiIndex):
