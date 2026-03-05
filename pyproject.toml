@@ -1,0 +1,43 @@
+[project]
+name = "trading"
+version = "0.1.0"
+description = "MLDP-style ML backtesting suite: Dollar Bars, Triple-Barrier, Meta-Labeling, Purged CV, Deflated Sharpe Ratio"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.0.0",
+    "pandas>=2.0.0",
+    "pandas-ta>=0.3.14b",
+    "vectorbt>=0.26.0",
+    "scikit-learn>=1.5.0",
+    "xgboost>=2.0.0",
+    "lightweight-charts>=2.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+    "pyright>=1.1.0",
+    "pytest-cov>=5.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "PL"]
+# E: pycodestyle errors
+# F: pyflakes
+# I: isort (import sorting)
+# N: pep8-naming
+# UP: pyupgrade (modernize syntax)
+# PL: pylint rules
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "basic"

@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "WriteFileTool",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run pytest",
+            "description": "Auto-run tests after every file write."
+          }
+        ]
+      },
+      {
+        "matcher": "EditFileTool",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run pytest",
+            "description": "Auto-run tests after every file edit."
+          }
+        ]
+      }
+    ]
+  }
+}
