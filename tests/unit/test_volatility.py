@@ -93,6 +93,7 @@ def test_negative_prices_raises():
 
 def test_real_data():
     df = load_ohlcv()
-    result = ewm_volatility(df["close"])
+    close: pd.Series = df["close"]  # type: ignore[assignment]
+    result = ewm_volatility(close)
     assert len(result) == len(df)
     assert result.notna().any()

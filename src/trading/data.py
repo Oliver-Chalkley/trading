@@ -1,4 +1,5 @@
 import pathlib
+from typing import cast
 
 import pandas as pd
 
@@ -10,7 +11,7 @@ def load_ohlcv(path: pathlib.Path | str = DEFAULT_PATH) -> pd.DataFrame:
     if not path.exists():
         raise FileNotFoundError(f"No such file: {path}")
     df = pd.read_csv(path, index_col="timestamp", parse_dates=True)
-    df = df[["open", "high", "low", "close", "volume"]]
+    df = cast(pd.DataFrame, df[["open", "high", "low", "close", "volume"]])
     df.index.name = "timestamp"
     df.sort_index(inplace=True)
     return df
