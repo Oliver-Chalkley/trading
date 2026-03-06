@@ -13,6 +13,7 @@ dependencies = [
     "xgboost>=2.0.0",
     "lightweight-charts>=2.0.0",
     "yfinance>=1.2.0",
+    "statsmodels>=0.14.6",
 ]
 
 [dependency-groups]
